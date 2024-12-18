@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block body %}
+<section class="Cart">
+    <div class="container">
+        <h2>My Cart</h2>
+        <div id="cartSummary" class="cart-summary"></div>
+        <div id="cartItems" class="cart-container"></div>
+        
+        <a href="/" class="btn">Continue Shopping</a>
+    </div>
+</section>
+
+<script src="{{ url_for('static', filename='scriptcart.js') }}"></script>
+{% endblock body %}

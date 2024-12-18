@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block body %}
+
+
+
+<section class="search-results">
+    <div class="container">
+        <h2>Search Results</h2>
+        <div id="results-container"></div>
+    </div>
+</section>
+
+{% endblock body %}
+
+
+<a href="cart.html" class="cart-link">
+                    
+    <img src="/static/images/carticon.png" alt="Shopping Cart" class="cart-icon">
+    <span id="cart-count" class="cart-count">0</span>
+</a>
+
+
+.cart-count {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 0.8em;
+    transform: translate(50%, -50%);
+}

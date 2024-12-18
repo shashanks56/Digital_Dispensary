@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Signup - Digital Dispensary</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-image: url('/static/images/hero.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        .container h2 {
+            margin-bottom: 20px;
+            text-align: center;
+            color: #333;
+        }
+
+        .container label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .container input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .container button:hover {
+            background-color: #45a049;
+        }
+
+        .container .toggle {
+            text-align: center;
+            margin-top: 20px;
+            cursor: pointer;
+            color: #007BFF;
+        }
+
+        .container .toggle:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="signup-form">
+            <h2>Signup</h2>
+            <form action="/signup" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                
+                <label for="confirm-password">Confirm Password:</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+                
+                <button type="submit">Signup</button>
+            </form>
+            <div class="toggle" onclick="toggleForms()">Already have an account? Login</div>
+        </div>
+        
+        <div id="login-form" style="display: none;">
+            <h2>Login</h2>
+            <form action="/login" method="POST">
+                <label for="email-login">Email:</label>
+                <input type="email" id="email-login" name="email" required>
+                
+                <label for="password-login">Password:</label>
+                <input type="password" id="password-login" name="password" required>
+                
+                <button type="submit">Login</button>
+            </form>
+            <div class="toggle" onclick="toggleForms()">Don't have an account? Signup</div>
+        </div>
+    </div>
+    <script>
+        function toggleForms() {
+            var signupForm = document.getElementById('signup-form');
+            var loginForm = document.getElementById('login-form');
+            if (signupForm.style.display === 'none') {
+                signupForm.style.display = 'block';
+                loginForm.style.display = 'none';
+            } else {
+                signupForm.style.display = 'none';
+                loginForm.style.display = 'block';
+            }
+        }
+
+        document.querySelector('#signup-form form').addEventListener('submit', function(e) {
+            var password = document.getElementById('password').value;
+            var confirmPassword = document.getElementById('confirm-password').value;
+            
+            if (password !== confirmPassword) {
+                e.preventDefault();
+                alert('Passwords do not match');
+            }
+        });
+    </script>
+</body>
+</html>

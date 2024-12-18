@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Dispensary</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo"><img src="/static/images/pill-48.png" alt="logo-img" class="logo-img"> 
+            <span class="logo-text">D-Dispensary</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="medicines.html">Medicines</a></li>
+                    <li><a href="otc.html">OTC Products</a></li>
+                    <li><a href="blog1.html">Health & Wellness Blog</a></li>                   
+                    <li><a href="#special-offers">Offers</a></li>
+                    <li><a href="#contact-us">Contact Us</a></li>
+                </ul>
+            </nav>
+            <div class="header-right">  
+                <a href="signup.html"><img src="/static/images/usericon.png" alt="User Account"></a>
+                <a href="cart.html">
+                    <img src="/static/images/carticon.png" alt="Shopping Cart" class="cart-icon">
+                    <span id="cartCount" class="badge">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    {% block body %}
+
+    {% endblock body %}
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">About Us</a>
+                <a href="#">FAQ</a>
+                <a href="#">Terms & Conditions</a>
+                <a href="#">Privacy Policy</a>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=sshekhar5656@gmail.com">Contact Us</a>
+            </div>
+            <div id="contact-us" class="footer-contact">
+                <p>Address: 22/7 Scube empires, Raebareli , Uttar Pradesh , 229001 </p>
+                <p>Phone: (+91) 7398905656</p>
+                <p>Email: support@digitaldispensary.com</p>
+            </div>
+            <div class="footer-social">
+                <a href="#"><img src="/static/images/fblogo.png" alt="Facebook"></a>
+                <a href="#"><img src="/static/images/TwitterLogo.png" alt="Twitter"></a>
+                <a href="#"><img src="/static/images/instalogo.png" alt="Instagram"></a>
+            </div>
+            <div class="footer-newsletter">
+                <input type="email" placeholder="Subscribe to our newsletter">
+                <button type="submit">Subscribe</button>
+            </div>
+            <div class="footer-payments">
+                <img src="/static/images/UPIlogo.png" alt="UPI">
+                <img src="/static/images/mastercard.png" alt="MasterCard">
+                <!-- Add more payment icons as needed -->
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
